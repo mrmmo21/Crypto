@@ -1,8 +1,8 @@
 package donnees;
 
 import exceptions.ExceptionConversionImpossible;
+import java.security.SecureRandom;
 import java.util.BitSet;
-import java.util.Set;
 
 /**
  * Description de la classe
@@ -14,8 +14,11 @@ public class NombreBinaire {
     
     //Génère un nombre binaire aléatoire de "taille" bits au maximum.
     public static NombreBinaire randomAvecTailleMax(int taille) {
-       //TODO
-       return null;
+        String key = "";
+        SecureRandom generator = new SecureRandom();
+        for (int i = 0; i < taille; i++)
+            key += (generator.nextBoolean() ? '1' : '0');
+        return new NombreBinaire(key);
     }
     
     
