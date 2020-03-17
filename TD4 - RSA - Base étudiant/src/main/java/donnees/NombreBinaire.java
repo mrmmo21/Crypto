@@ -25,7 +25,7 @@ public class NombreBinaire {
     //renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
     public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
        //TODO
-       return null;
+       return new NombreBinaire();
     }
    
     
