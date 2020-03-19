@@ -27,19 +27,37 @@ public class NewMain {
         while(!str.equals("FIN")){
             
             
-            str = c.receiveMessage();
+            //str = c.receiveMessage();
             //defInférieur(c,str);
             //defAdd(c,str);
             //defEgal(c,str);
             //defDecal(c,str);
             //defSous(c,str);
-            defMult(c,str);
+            //defMult(c,str);
+            defrandomFixe(c,str);
         }
         
         
         
     }
  
+    public static void defrandomFixe(Client c, String str) throws IOException{
+        String nb2 = "";
+        String nb1 = "";
+        if(str.equals("Fin")){
+            c.end();
+        }
+        else
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            int nb = Integer.parseInt(nb2);
+            NombreBinaire bin = NombreBinaire.randomAvecTailleMax(nb);
+            c.sendMessage(bin.toString());
+        }
+        
+    }
+    
     public static void defDecal(Client c, String str) throws IOException{
         String MotBinaire = "";
         String nb = "";

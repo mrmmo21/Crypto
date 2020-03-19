@@ -270,7 +270,7 @@ public class NombreBinaire {
 
      //Calcul le quotient dans la division euclidienne de this par mot2
      public NombreBinaire quotient(NombreBinaire mot2) {
-       
+                  
        return null;
      }
      
