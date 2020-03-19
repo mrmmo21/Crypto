@@ -23,10 +23,12 @@ public class NombreBinaire {
     
     
     //renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
-    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
+    public static NombreBinaire random(NombreBinaire min,NombreBinaire max)
+    {
+        //NombreBinaire nb = NombreBinaire(max.toString())
         NombreBinaire n = randomAvecTailleMax(max.getTaille());
         // while (!(n.asInteger() < max.asInteger() && !n.estInferieurA(min)))
-        while (n.estInferieurA(min) || !(!n.estEgal(max) && !n.estInferieurA(max)))
+        while (n.estInferieurA(min) || (!n.estEgal(max) && !n.estInferieurA(max)))
             n = randomAvecTailleMax(max.getTaille());
         return n;
     }
@@ -273,6 +275,7 @@ public class NombreBinaire {
          NombreBinaire bPrime;
          int q = 0;
          while (!r.estInferieurA(b)){
+             System.out.println(r.estInferieurA(b));
             int n  = this.toString().length()-mot2.toString().length();
             bPrime = new NombreBinaire(b.decalage(n));
             if (!bPrime.estInferieurA(r)){

@@ -29,10 +29,9 @@ public class NewMain {
         String str="";
         
         while(!str.equals("FIN")){
+            
             str = c.receiveMessage();
-            
-            
-            //str = c.receiveMessage();
+                       
             //defInférieur(c,str);
             //defAdd(c,str);
             //defEgal(c,str);
@@ -42,10 +41,46 @@ public class NewMain {
             //defrandomFixe(c,str);
             
             
-            defrandomBorne(c,str);
-
+            //defrandomBorne(c,str);
+            defModulo(c,str);
         }
     }
+    
+    public static void defModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb1 = "";
+        String nb2 = "";
+        if(str.equals("FIN")){
+            c.end();
+        }
+        else 
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire bin1 = new NombreBinaire(nb1);
+            NombreBinaire b = bin1.modulo(new NombreBinaire(nb2));
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
+    public static void defQuotient(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb1 = "";
+        String nb2 = "";
+        if(str.equals("FIN")){
+            c.end();
+        }
+        else 
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire bin1 = new NombreBinaire(nb1);
+            NombreBinaire b = bin1.quotient(new NombreBinaire(nb2));
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
+    
  
     public static void defrandomBorne(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb2 = "";
