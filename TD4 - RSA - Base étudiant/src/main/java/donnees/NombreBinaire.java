@@ -26,7 +26,7 @@ public class NombreBinaire {
     public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
         NombreBinaire n = randomAvecTailleMax(max.getTaille());
         // while (!(n.asInteger() < max.asInteger() && !n.estInferieurA(min)))
-        while (n.estInferieurA(min) || !(!n.estEgal(max) && !n.estInferieurA(max)))
+        while (n.estInferieurA(min) || (!n.estEgal(max) && !n.estInferieurA(max)))
             n = randomAvecTailleMax(max.getTaille());
         return n;
     }
