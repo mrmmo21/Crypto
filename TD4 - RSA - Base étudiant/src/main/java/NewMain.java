@@ -50,7 +50,6 @@ public class NewMain {
         {
             MotBinaire = c.receiveMessage();
             nb = c.receiveMessage();
-            System.out.println(Integer.parseInt(nb));
             NombreBinaire bin1 = new NombreBinaire(MotBinaire);
             NombreBinaire b = bin1.decalage(Integer.parseInt(nb));
             c.sendMessage(b.toString());
