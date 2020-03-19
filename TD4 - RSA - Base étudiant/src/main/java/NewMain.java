@@ -33,11 +33,8 @@ public class NewMain {
             //defEgal(c,str);
             //defDecal(c,str);
             //defSous(c,str);
-            defMult(c,str);
+            //defMult(c,str);
         }
-        
-        
-        
     }
  
     public static void defDecal(Client c, String str) throws IOException{
