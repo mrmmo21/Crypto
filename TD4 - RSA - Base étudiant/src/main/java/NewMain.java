@@ -42,8 +42,28 @@ public class NewMain {
             
             
             //defrandomBorne(c,str);
-            defModulo(c,str);
+            //defModulo(c,str);
+            //defQuotient(c,str);
+            defPGCD(c,str);
         }
+    }
+    
+    
+    public static void defPGCD(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb1 = "";
+        String nb2 = "";
+        if(str.equals("FIN")){
+            c.end();
+        }
+        else 
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire bin1 = new NombreBinaire(nb1);
+            NombreBinaire b = bin1.PGCD(new NombreBinaire(nb2));
+            c.sendMessage(b.toString());
+        }
+        
     }
     
     public static void defModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{

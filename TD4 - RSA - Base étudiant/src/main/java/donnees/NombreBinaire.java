@@ -289,7 +289,22 @@ public class NombreBinaire {
 
      //Calcul le quotient dans la division euclidienne de this par mot2
      public NombreBinaire quotient(NombreBinaire mot2) {
-         return null;
+         NombreBinaire a = this;
+         NombreBinaire b = mot2;
+         NombreBinaire r = a;
+         NombreBinaire bPrime;
+         int q = 0;
+         while (!r.estInferieurA(b)){
+            int n  = r.toString().length()-b.toString().length();
+            bPrime = new NombreBinaire(b.decalage(n));
+            if (r.estInferieurA(bPrime)){
+                bPrime = b.decalage(n-1);
+                n -= 1;
+            }
+            r = r.soustraction(bPrime);
+            q+=Math.pow(2, n);
+         }
+         return new NombreBinaire(q);
      }
      
      //Calcul de this^exposant modulo m par exponentiation modulaire rapide
@@ -328,9 +343,27 @@ public class NombreBinaire {
      }
      
      
-     public NombreBinaire PGCD(NombreBinaire mot2) {
-       //TODO
-       return null;
+     public NombreBinaire PGCD(NombreBinaire mot2) throws ExceptionConversionImpossible {
+        NombreBinaire bin1 = this;
+        NombreBinaire bin2 = mot2;
+        NombreBinaire binTemp = new NombreBinaire();
+         while(!bin1.equals(0))
+            {
+                if(bin1.estInferieurA(bin2))
+                {
+                    binTemp = bin2;
+                    bin2 = bin1;
+                    bin1 = binTemp.modulo(bin1);
+
+                }
+                else
+                {
+                    binTemp = bin1;
+                    bin1 = bin2;
+                    bin2 = binTemp.modulo(bin2); 
+                }
+            } 
+       return binTemp;
      }
      
      //Calcul de l'inverse modulo nombre
