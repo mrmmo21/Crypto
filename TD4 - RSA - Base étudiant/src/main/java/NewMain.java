@@ -27,26 +27,37 @@ public class NewMain {
         //Client c = new Client();
         String str="";
         
-        NombreBinaire random = NombreBinaire.random(new NombreBinaire("10001"), new NombreBinaire("100"));
-        System.out.println(random.toString());
-        return;
-        
-//        while(!str.equals("FIN")){
-//            
-//            
-//            str = c.receiveMessage();
-//            //defInférieur(c,str);
-//            //defAdd(c,str);
-//            //defEgal(c,str);
-//            //defDecal(c,str);
-//            //defSous(c,str);
-//            defMult(c,str);
-//        }
-//        
-//        
-//        
+        while(!str.equals("FIN")){
+            
+            
+            //str = c.receiveMessage();
+            //defInférieur(c,str);
+            //defAdd(c,str);
+            //defEgal(c,str);
+            //defDecal(c,str);
+            //defSous(c,str);
+            //defMult(c,str);
+            defrandomFixe(c,str);
+        }
     }
  
+    public static void defrandomFixe(Client c, String str) throws IOException{
+        String nb2 = "";
+        String nb1 = "";
+        if(str.equals("Fin")){
+            c.end();
+        }
+        else
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            int nb = Integer.parseInt(nb2);
+            NombreBinaire bin = NombreBinaire.randomAvecTailleMax(nb);
+            c.sendMessage(bin.toString());
+        }
+        
+    }
+    
     public static void defDecal(Client c, String str) throws IOException{
         String MotBinaire = "";
         String nb = "";
@@ -57,7 +68,6 @@ public class NewMain {
         {
             MotBinaire = c.receiveMessage();
             nb = c.receiveMessage();
-            System.out.println(Integer.parseInt(nb));
             NombreBinaire bin1 = new NombreBinaire(MotBinaire);
             NombreBinaire b = bin1.decalage(Integer.parseInt(nb));
             c.sendMessage(b.toString());
