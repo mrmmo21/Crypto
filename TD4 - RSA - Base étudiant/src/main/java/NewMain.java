@@ -27,6 +27,7 @@ public class NewMain {
     public static void main(String[] args) throws ExceptionCryptographie, IOException {
         Client c = new Client();
         String str="";
+        
         while(!str.equals("FIN")){
             
             
@@ -42,9 +43,6 @@ public class NewMain {
             
             defrandomBorne(c,str);
         }
-        
-        
-        
     }
  
     public static void defrandomBorne(Client c, String str) throws IOException, ExceptionConversionImpossible{
@@ -186,5 +184,4 @@ public class NewMain {
         }
         
     }
-    
 }
