@@ -25,8 +25,6 @@ public class NewMain {
         Client c = new Client();
         String str="";
         while(!str.equals("FIN")){
-            
-            
             str = c.receiveMessage();
             //defInférieur(c,str);
             //defAdd(c,str);
