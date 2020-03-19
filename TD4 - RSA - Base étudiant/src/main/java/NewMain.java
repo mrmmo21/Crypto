@@ -1,6 +1,7 @@
 
 import coucheReseau.client.Client;
 import donnees.NombreBinaire;
+import exceptions.ExceptionConversionImpossible;
 import exceptions.ExceptionCryptographie;
 import java.io.IOException;
 import protocoles.Protocole;
@@ -36,13 +37,34 @@ public class NewMain {
             //defDecal(c,str);
             //defSous(c,str);
             //defMult(c,str);
-            defrandomFixe(c,str);
+            //defrandomFixe(c,str);
+            
+            
+            defrandomBorne(c,str);
         }
         
         
         
     }
  
+    public static void defrandomBorne(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb2 = "";
+        String nb1 = "";
+        if(str.equals("Fin")){
+            c.end();
+        }
+        else
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire n1 = new NombreBinaire(nb1);
+            NombreBinaire n2 = new NombreBinaire(nb2);
+            NombreBinaire b = NombreBinaire.random(n1, n2);
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
     public static void defrandomFixe(Client c, String str) throws IOException{
         String nb2 = "";
         String nb1 = "";
