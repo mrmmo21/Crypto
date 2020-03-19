@@ -24,7 +24,7 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ExceptionCryptographie, IOException {
-        //Client c = new Client();
+        Client c = new Client();
         String str="";
         
         while(!str.equals("FIN")){
