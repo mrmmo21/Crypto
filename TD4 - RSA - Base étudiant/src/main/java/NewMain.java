@@ -1,6 +1,7 @@
 
 import coucheReseau.client.Client;
 import donnees.NombreBinaire;
+import exceptions.ExceptionConversionImpossible;
 import exceptions.ExceptionCryptographie;
 import java.io.IOException;
 import protocoles.Protocole;
@@ -28,21 +29,77 @@ public class NewMain {
         String str="";
         
         while(!str.equals("FIN")){
+            
             str = c.receiveMessage();
-            
-            
-            //str = c.receiveMessage();
+                       
             //defInférieur(c,str);
             //defAdd(c,str);
             //defEgal(c,str);
             //defDecal(c,str);
             //defSous(c,str);
             //defMult(c,str);
-            defrandomFixe(c,str);
-
+            //defrandomFixe(c,str);
+            
+            
+            //defrandomBorne(c,str);
+            defModulo(c,str);
         }
     }
+    
+    public static void defModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb1 = "";
+        String nb2 = "";
+        if(str.equals("FIN")){
+            c.end();
+        }
+        else 
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire bin1 = new NombreBinaire(nb1);
+            NombreBinaire b = bin1.modulo(new NombreBinaire(nb2));
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
+    public static void defQuotient(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb1 = "";
+        String nb2 = "";
+        if(str.equals("FIN")){
+            c.end();
+        }
+        else 
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire bin1 = new NombreBinaire(nb1);
+            NombreBinaire b = bin1.quotient(new NombreBinaire(nb2));
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
+    
  
+    public static void defrandomBorne(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb2 = "";
+        String nb1 = "";
+        if(str.equals("Fin")){
+            c.end();
+        }
+        else
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            NombreBinaire n1 = new NombreBinaire(nb1);
+            NombreBinaire n2 = new NombreBinaire(nb2);
+            NombreBinaire b = NombreBinaire.random(n1, n2);
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
     public static void defrandomFixe(Client c, String str) throws IOException{
         String nb2 = "";
         String nb1 = "";

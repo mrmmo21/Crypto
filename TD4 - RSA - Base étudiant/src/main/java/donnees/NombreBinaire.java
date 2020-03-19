@@ -23,7 +23,9 @@ public class NombreBinaire {
     
     
     //renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
-    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
+    public static NombreBinaire random(NombreBinaire min,NombreBinaire max)
+    {
+        //NombreBinaire nb = NombreBinaire(max.toString())
         NombreBinaire n = randomAvecTailleMax(max.getTaille());
         // while (!(n.asInteger() < max.asInteger() && !n.estInferieurA(min)))
         while (n.estInferieurA(min) || (!n.estEgal(max) && !n.estInferieurA(max)))
@@ -275,6 +277,10 @@ public class NombreBinaire {
          while (!r.estInferieurA(b)){
             int n  = this.toString().length()-mot2.toString().length();
             bPrime = new NombreBinaire(b.decalage(n));
+            if (r.estInferieurA(bPrime)){
+                bPrime = b.decalage(n-1);
+                n -= 1;
+            }
             r = r.soustraction(bPrime);
             q+=Math.pow(2, n);
          }
@@ -288,8 +294,7 @@ public class NombreBinaire {
      
      //Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-       //TODO
-       return null;
+         return null;
      }
      
      
