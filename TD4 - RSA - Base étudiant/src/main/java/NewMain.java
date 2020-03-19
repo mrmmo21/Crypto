@@ -12,6 +12,8 @@ import protocoles.*;
  * and open the template in the editor.
  */
 
+//test
+
 /**
  *
  * @author Matthieu
@@ -26,15 +28,37 @@ public class NewMain {
         String str="";
         while(!str.equals("FIN")){
             str = c.receiveMessage();
+            
+            
+            //str = c.receiveMessage();
             //defInférieur(c,str);
             //defAdd(c,str);
             //defEgal(c,str);
             //defDecal(c,str);
             //defSous(c,str);
             //defMult(c,str);
+            defrandomFixe(c,str);
+
         }
     }
  
+    public static void defrandomFixe(Client c, String str) throws IOException{
+        String nb2 = "";
+        String nb1 = "";
+        if(str.equals("Fin")){
+            c.end();
+        }
+        else
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            int nb = Integer.parseInt(nb2);
+            NombreBinaire bin = NombreBinaire.randomAvecTailleMax(nb);
+            c.sendMessage(bin.toString());
+        }
+        
+    }
+    
     public static void defDecal(Client c, String str) throws IOException{
         String MotBinaire = "";
         String nb = "";
@@ -45,7 +69,6 @@ public class NewMain {
         {
             MotBinaire = c.receiveMessage();
             nb = c.receiveMessage();
-            System.out.println(Integer.parseInt(nb));
             NombreBinaire bin1 = new NombreBinaire(MotBinaire);
             NombreBinaire b = bin1.decalage(Integer.parseInt(nb));
             c.sendMessage(b.toString());

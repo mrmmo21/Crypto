@@ -23,9 +23,11 @@ public class NombreBinaire {
     
     
     //renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
-    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
-       //test de commit pour netbeans 
-       return new NombreBinaire();
+    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) throws ExceptionConversionImpossible {
+        NombreBinaire n = randomAvecTailleMax(max.getTaille());
+        while (!(n.asInteger() < max.asInteger() && !n.estInferieurA(min)))
+            n = randomAvecTailleMax(max.getTaille());
+        return n;
     }
    
     
@@ -161,9 +163,10 @@ public class NombreBinaire {
                 nb = (b1.get(i)?1:0)+ ret;
              
              res.set(i, nb%2==1);
-             ret = nb/2;
+             ret = (int)Math.floor(nb/2);
          }
-       
+       if(ret != 0)
+           res.set(b1.length(),true);
        return new NombreBinaire(res);
      }
      
@@ -208,7 +211,6 @@ public class NombreBinaire {
      //Caclule le décalage de n bits (multiplie par 2^n)
     public NombreBinaire decalage(int n) {
        String str = "" + this.toString();
-       System.out.println(str);
        for (int i = 0; i < n; i++) {
            str+= "0";
        }
@@ -219,9 +221,27 @@ public class NombreBinaire {
      //Calcul la multiplication de this avec mot2
      public NombreBinaire multiplication(NombreBinaire mot2) {
        NombreBinaire resultat = new NombreBinaire(0);
-       NombreBinaire decal3 = this.decalage(3).addition(mot2);
-       NombreBinaire decal1 = this.decalage(1).addition(mot2);
-       resultat = decal3.addition(decal1).addition(this);
+       NombreBinaire n1; 
+       NombreBinaire n2;
+       
+       if(this.getTaille()<mot2.getTaille()){
+           n1 = this;
+           n2 = mot2;
+       }
+       else
+       {
+           n2 = this;
+           n1 = mot2;
+       }
+       
+         for (int i = 0; i < n2.getTaille(); i++) {
+             if(n2.listeBits.get(i)){
+                resultat = resultat.addition(n1.decalage(i));
+             }
+                 
+         }
+       
+       
  
        return resultat;
      }
