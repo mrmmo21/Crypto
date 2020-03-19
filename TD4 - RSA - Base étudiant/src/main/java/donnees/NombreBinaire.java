@@ -275,7 +275,7 @@ public class NombreBinaire {
          NombreBinaire bPrime;
          int q = 0;
          while (!r.estInferieurA(b)){
-            int n  = this.toString().length()-mot2.toString().length();
+            int n  = a.toString().length()-b.toString().length();
             bPrime = new NombreBinaire(b.decalage(n));
             if (r.estInferieurA(bPrime)){
                 bPrime = b.decalage(n-1);
