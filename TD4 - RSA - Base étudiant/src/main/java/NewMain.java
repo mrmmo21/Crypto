@@ -33,6 +33,7 @@ public class NewMain {
             //defEgal(c,str);
             //defDecal(c,str);
             //defSous(c,str);
+            //dab
             defMult(c,str);
         }
         
