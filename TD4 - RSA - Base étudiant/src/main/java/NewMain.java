@@ -26,6 +26,7 @@ public class NewMain {
     public static void main(String[] args) throws ExceptionCryptographie, IOException {
         Client c = new Client();
         String str="";
+        
         while(!str.equals("FIN")){
             str = c.receiveMessage();
             
@@ -163,5 +164,4 @@ public class NewMain {
         }
         
     }
-    
 }
