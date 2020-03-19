@@ -272,7 +272,7 @@ public class NombreBinaire {
          {
             if( mot2.asBitSet().get(i)== this.listeBits.get(i))
                     {
-                        
+                         
                     }
             else {
                 retour = false;
