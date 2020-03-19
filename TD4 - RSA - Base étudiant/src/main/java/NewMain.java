@@ -24,22 +24,27 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ExceptionCryptographie, IOException {
-        Client c = new Client();
+        //Client c = new Client();
         String str="";
-        while(!str.equals("FIN")){
-            
-            
-            str = c.receiveMessage();
-            //defInférieur(c,str);
-            //defAdd(c,str);
-            //defEgal(c,str);
-            //defDecal(c,str);
-            //defSous(c,str);
-            defMult(c,str);
-        }
         
+        NombreBinaire random = NombreBinaire.random(new NombreBinaire("10001"), new NombreBinaire("100"));
+        System.out.println(random.toString());
+        return;
         
-        
+//        while(!str.equals("FIN")){
+//            
+//            
+//            str = c.receiveMessage();
+//            //defInférieur(c,str);
+//            //defAdd(c,str);
+//            //defEgal(c,str);
+//            //defDecal(c,str);
+//            //defSous(c,str);
+//            defMult(c,str);
+//        }
+//        
+//        
+//        
     }
  
     public static void defDecal(Client c, String str) throws IOException{
@@ -147,5 +152,4 @@ public class NewMain {
         }
         
     }
-    
 }
