@@ -29,6 +29,7 @@ public class NewMain {
         String str="";
         
         while(!str.equals("FIN")){
+            str = c.receiveMessage();
             
             
             //str = c.receiveMessage();
@@ -42,6 +43,7 @@ public class NewMain {
             
             
             defrandomBorne(c,str);
+
         }
     }
  

@@ -266,15 +266,24 @@ public class NombreBinaire {
      }
      
      //Calcul this modulo mot2 via une division euclidienne
-     public NombreBinaire modulo(NombreBinaire mot2) {
-       //TODO
-       return null;
+     public NombreBinaire modulo(NombreBinaire mot2) throws ExceptionConversionImpossible {
+         NombreBinaire a = this;
+         NombreBinaire b = mot2;
+         NombreBinaire r = a;
+         NombreBinaire bPrime;
+         int q = 0;
+         while (!r.estInferieurA(b)){
+            int n  = this.toString().length()-mot2.toString().length();
+            bPrime = new NombreBinaire(b.decalage(n));
+            r = r.soustraction(bPrime);
+            q+=Math.pow(2, n);
+         }
+         return new NombreBinaire(r);
      }  
 
      //Calcul le quotient dans la division euclidienne de this par mot2
      public NombreBinaire quotient(NombreBinaire mot2) {
-                  
-       return null;
+         return null;
      }
      
      //Calcul de this^exposant modulo m par exponentiation modulaire rapide
@@ -321,7 +330,7 @@ public class NombreBinaire {
      
      //Calcul de l'inverse modulo nombre
      //Basé sur l'algo d'euclide étendu (adapté).
-     public NombreBinaire inverseModulaire(NombreBinaire nombre) {
+     public NombreBinaire inverseModulaire(NombreBinaire nombre) throws ExceptionConversionImpossible {
          NombreBinaire ZERO = new NombreBinaire(0);
             
          NombreBinaire n0 = new NombreBinaire(nombre);
