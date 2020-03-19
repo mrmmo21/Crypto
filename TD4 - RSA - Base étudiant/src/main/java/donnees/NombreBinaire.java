@@ -23,9 +23,14 @@ public class NombreBinaire {
     
     
     //renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
-    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
-       //test de commit pour netbeans 
-       return new NombreBinaire();
+    public static NombreBinaire random(NombreBinaire min,NombreBinaire max)
+    {
+        //NombreBinaire nb = NombreBinaire(max.toString())
+        NombreBinaire n = randomAvecTailleMax(max.getTaille());
+        // while (!(n.asInteger() < max.asInteger() && !n.estInferieurA(min)))
+        while (n.estInferieurA(min) || (!n.estEgal(max) && !n.estInferieurA(max)))
+            n = randomAvecTailleMax(max.getTaille());
+        return n;
     }
    
     
@@ -161,9 +166,10 @@ public class NombreBinaire {
                 nb = (b1.get(i)?1:0)+ ret;
              
              res.set(i, nb%2==1);
-             ret = nb/2;
+             ret = (int)Math.floor(nb/2);
          }
-       
+       if(ret != 0)
+           res.set(b1.length(),true);
        return new NombreBinaire(res);
      }
      
@@ -208,7 +214,6 @@ public class NombreBinaire {
      //Caclule le décalage de n bits (multiplie par 2^n)
     public NombreBinaire decalage(int n) {
        String str = "" + this.toString();
-       System.out.println(str);
        for (int i = 0; i < n; i++) {
            str+= "0";
        }
@@ -219,9 +224,27 @@ public class NombreBinaire {
      //Calcul la multiplication de this avec mot2
      public NombreBinaire multiplication(NombreBinaire mot2) {
        NombreBinaire resultat = new NombreBinaire(0);
-       NombreBinaire decal3 = this.decalage(3).addition(mot2);
-       NombreBinaire decal1 = this.decalage(1).addition(mot2);
-       resultat = decal3.addition(decal1).addition(this);
+       NombreBinaire n1; 
+       NombreBinaire n2;
+       
+       if(this.getTaille()<mot2.getTaille()){
+           n1 = this;
+           n2 = mot2;
+       }
+       else
+       {
+           n2 = this;
+           n1 = mot2;
+       }
+       
+         for (int i = 0; i < n2.getTaille(); i++) {
+             if(n2.listeBits.get(i)){
+                resultat = resultat.addition(n1.decalage(i));
+             }
+                 
+         }
+       
+       
  
        return resultat;
      }
@@ -245,21 +268,48 @@ public class NombreBinaire {
      }
      
      //Calcul this modulo mot2 via une division euclidienne
-     public NombreBinaire modulo(NombreBinaire mot2) {
-       //TODO
-       return null;
+     public NombreBinaire modulo(NombreBinaire mot2) throws ExceptionConversionImpossible {
+         NombreBinaire a = this;
+         NombreBinaire b = mot2;
+         NombreBinaire r = a;
+         NombreBinaire bPrime;
+         int q = 0;
+         while (!r.estInferieurA(b)){
+            int n  = r.toString().length()-b.toString().length();
+            bPrime = new NombreBinaire(b.decalage(n));
+            if (r.estInferieurA(bPrime)){
+                bPrime = b.decalage(n-1);
+                n -= 1;
+            }
+            r = r.soustraction(bPrime);
+            q+=Math.pow(2, n);
+         }
+         return new NombreBinaire(r);
      }  
 
      //Calcul le quotient dans la division euclidienne de this par mot2
      public NombreBinaire quotient(NombreBinaire mot2) {
-       //TODO
-       return null;
+         NombreBinaire a = this;
+         NombreBinaire b = mot2;
+         NombreBinaire r = a;
+         NombreBinaire bPrime;
+         int q = 0;
+         while (!r.estInferieurA(b)){
+            int n  = r.toString().length()-b.toString().length();
+            bPrime = new NombreBinaire(b.decalage(n));
+            if (r.estInferieurA(bPrime)){
+                bPrime = b.decalage(n-1);
+                n -= 1;
+            }
+            r = r.soustraction(bPrime);
+            q+=Math.pow(2, n);
+         }
+         return new NombreBinaire(q);
      }
      
      //Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-       //TODO
-       return null;
+         return null;
      }
      
      
@@ -293,14 +343,32 @@ public class NombreBinaire {
      }
      
      
-     public NombreBinaire PGCD(NombreBinaire mot2) {
-       //TODO
-       return null;
+     public NombreBinaire PGCD(NombreBinaire mot2) throws ExceptionConversionImpossible {
+        NombreBinaire bin1 = this;
+        NombreBinaire bin2 = mot2;
+        NombreBinaire binTemp = new NombreBinaire();
+         while(!bin1.equals(0))
+            {
+                if(bin1.estInferieurA(bin2))
+                {
+                    binTemp = bin2;
+                    bin2 = bin1;
+                    bin1 = binTemp.modulo(bin1);
+
+                }
+                else
+                {
+                    binTemp = bin1;
+                    bin1 = bin2;
+                    bin2 = binTemp.modulo(bin2); 
+                }
+            } 
+       return binTemp;
      }
      
      //Calcul de l'inverse modulo nombre
      //Basé sur l'algo d'euclide étendu (adapté).
-     public NombreBinaire inverseModulaire(NombreBinaire nombre) {
+     public NombreBinaire inverseModulaire(NombreBinaire nombre) throws ExceptionConversionImpossible {
          NombreBinaire ZERO = new NombreBinaire(0);
             
          NombreBinaire n0 = new NombreBinaire(nombre);
