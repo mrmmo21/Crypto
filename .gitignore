@@ -28,3 +28,4 @@ hs_err_pid*
 
 # Netbeans build files
 *.netbeans_automatic_build
+*.class
