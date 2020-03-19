@@ -23,9 +23,11 @@ public class NombreBinaire {
     
     
     //renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
-    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
-       //test de commit pour netbeans 
-       return new NombreBinaire();
+    public static NombreBinaire random(NombreBinaire min,NombreBinaire max) throws ExceptionConversionImpossible {
+        NombreBinaire n = randomAvecTailleMax(max.getTaille());
+        while (!(n.asInteger() < max.asInteger() && !n.estInferieurA(min)))
+            n = randomAvecTailleMax(max.getTaille());
+        return n;
     }
    
     
