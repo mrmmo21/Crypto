@@ -292,8 +292,7 @@ public class NombreBinaire {
      
      //Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-       //TODO
-       return null;
+         return null;
      }
      
      
