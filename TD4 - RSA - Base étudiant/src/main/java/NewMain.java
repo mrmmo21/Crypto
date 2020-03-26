@@ -60,7 +60,6 @@ public class NewMain {
     
    
     
-    
     public static void defPGCD(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
         String nb2 = "";
