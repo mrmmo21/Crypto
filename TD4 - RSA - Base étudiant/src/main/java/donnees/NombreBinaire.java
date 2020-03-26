@@ -268,20 +268,21 @@ public class NombreBinaire {
      
      //Calcul this modulo mot2 via une division euclidienne
      public NombreBinaire modulo(NombreBinaire mot2) throws ExceptionConversionImpossible {
+         if (mot2.estEgal(new NombreBinaire(0))) throw new ExceptionConversionImpossible("mot2 = 0");
          NombreBinaire a = this;
          NombreBinaire b = mot2;
          NombreBinaire r = a;
          NombreBinaire bPrime;
-         int q = 0;
+         NombreBinaire q = new NombreBinaire();
          while (!r.estInferieurA(b)){
-            int n  = r.toString().length()-b.toString().length();
+            int n  = r.getTaille()-b.getTaille();
             bPrime = new NombreBinaire(b.decalage(n));
-            if (r.estInferieurA(bPrime)){
+            if (r.estInferieurA(bPrime) && !r.estEgal(bPrime)){
                 bPrime = b.decalage(n-1);
                 n -= 1;
             }
             r = r.soustraction(bPrime);
-            q+=Math.pow(2, n);
+            q = q.addition(new NombreBinaire(1).decalage(n));
          }
          return new NombreBinaire(r);
      }  
@@ -345,42 +346,50 @@ public class NombreBinaire {
      
      
      public NombreBinaire PGCD(NombreBinaire mot2) throws ExceptionConversionImpossible {
-        NombreBinaire bin1; 
-        NombreBinaire bin2;
-
-        if(this.getTaille()<mot2.getTaille()){
-            bin1 = this;
-            bin2 = mot2;
-        }
-        else
-        {
-            bin2 = this;
-            bin1 = mot2;
-        }
-       
-        NombreBinaire binTemp = new NombreBinaire();
-        
-        
-        
-        if(bin1.estInferieurA(bin2))
-            {
-                while(!bin1.estEgal(new NombreBinaire('0')))
-                {
-                    binTemp = bin2;
-                    bin2 = bin1;
-                }
-            }
-            else
-            {
-                while(!bin1.estEgal(new NombreBinaire('0')))
-                {
-                    binTemp = bin1;
-                    bin1 = bin2;
-                    bin2 = binTemp.modulo(bin2); 
-                }
-            }
-       return binTemp;
+         NombreBinaire zero = new NombreBinaire(0);
+         NombreBinaire a;
+         NombreBinaire b;
+         if (this.estInferieurA(mot2))
+         {
+             a = new NombreBinaire(mot2);
+             b = new NombreBinaire(this);
+         }
+         else
+         {
+             a = new NombreBinaire(this);
+             b = new NombreBinaire(mot2);
+         }
+         while (!b.estEgal(zero))
+         {
+             NombreBinaire btemp = new NombreBinaire(b);
+             b = a.modulo(b);
+             a = btemp;
+         }
+         return a;
      }
+
+              
+//        NombreBinaire bin1 = new NombreBinaire(this); 
+//        NombreBinaire bin2 = new NombreBinaire(mot2);
+//        
+//        NombreBinaire binMax;
+//        binMax = bin1.estInferieurA(bin2) ? bin2 : bin1; // si bin1 est inferieur a bin2 => binTemp = bin2
+//        if(bin1.estInferieurA(bin2))
+//        {
+//            while(!bin1.estEgal(new NombreBinaire(0)))
+//            {
+//                bin2 = bin1;
+//                bin1 = binMax.modulo(bin1);
+//            }
+//        }
+//        else
+//        {
+//            while(!bin2.estEgal(new NombreBinaire(0)))
+//            {
+//                bin1 = bin2;
+//                bin2 = binMax.modulo(bin2);
+//            }
+//        }
      
      //Calcul de l'inverse modulo nombre
      //Basé sur l'algo d'euclide étendu (adapté).
