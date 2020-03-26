@@ -29,8 +29,11 @@ public class AlgorithmeRSA implements Algorithme{
     
     //Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
     public MotBinaire dechiffrerMorceau(MotBinaire morceau, Cles clesPublique, Cles clesPrivee) throws ExceptionConversionImpossible {
-       //TODO
-       return null;
+        NombreBinaire cleRSA_N = clesPublique.getCle("cleRSA_N").asMotBinaire().asNombreBinaire();
+        NombreBinaire cleRSA_d = clesPrivee.getCle("cleRSA_d").asMotBinaire().asNombreBinaire();
+        NombreBinaire m = morceau.asNombreBinaire();
+        NombreBinaire res = m.puissanceModulo(cleRSA_d, cleRSA_N);
+        return new MotBinaire(res, ParametresRSA.getTailleMorceau());
     }
 
     @Override

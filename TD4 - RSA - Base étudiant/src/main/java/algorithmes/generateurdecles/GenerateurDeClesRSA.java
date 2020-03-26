@@ -45,15 +45,15 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
 
     @Override
     public Cles genererClePublique() {
-       NombreBinaire random1 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-       NombreBinaire random2 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-       NombreBinaire p = null;
+        NombreBinaire random1 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+        NombreBinaire random2 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+        NombreBinaire p = null;
         try {
             p = RabinMiller.nombrePremier(random1);
         } catch (ExceptionConversionImpossible ex) {
             Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, "could not find 'p'", ex);
         }
-       NombreBinaire q = null;
+        NombreBinaire q = null;
         try {
             q = RabinMiller.nombrePremier(random2);
         } catch (ExceptionConversionImpossible ex) {
@@ -86,7 +86,6 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
         } catch (ExceptionConversionImpossible ex) {
             Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Computing");
         NombreBinaire one = new NombreBinaire(1);
         P = p;
         Q = q;
