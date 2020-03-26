@@ -27,10 +27,6 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        
-        GenerateurDeClesRSA generator = new GenerateurDeClesRSA();
-        generator.genererClePublique();
-        System.out.println(generator.getE() + " " + generator.getPhi() + " " + generator.getN() + " " + generator.getQ() + " " + generator.getP());
         Client c = new Client();
         String str="";
         str = c.receiveMessage(); 

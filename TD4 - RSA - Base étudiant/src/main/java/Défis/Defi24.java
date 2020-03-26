@@ -31,6 +31,9 @@ public class Defi24 implements Defis {
             }
             else 
             {
+                
+            
+        
                 nb1 = c.receiveMessage();
                 if(nb1.charAt(0) != 'D')
                 {
@@ -43,11 +46,12 @@ public class Defi24 implements Defis {
                     gene.setP(bin1);
                     gene.setQ(bin2);
                     gene.setE(bin3);
-                    Cles cles= gene.genererClePrivee();
-                    Cle cle = cles.getCle("cleRSA");
-                    String s = cle.asMotBinaire().toString();
-                    c.sendMessage(s);
-                }
+                    Cles cles= gene.genererClePublique();
+                    c.sendMessage(gene.getP().toString());
+                    c.sendMessage(gene.getQ().toString());
+                    c.sendMessage(gene.getN().toString());
+                    c.sendMessage(gene.getPhi().toString());       
+                    c.sendMessage(gene.getE().toString());}
                 str = c.receiveMessage();
                 if(str.equals("NOK"))
                 {
