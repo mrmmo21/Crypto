@@ -19,7 +19,7 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
     private NombreBinaire Q;
     private NombreBinaire N;;
     private NombreBinaire phi;
-        private NombreBinaire e;
+    private NombreBinaire e;
 
     public NombreBinaire getP() {
         return P;
