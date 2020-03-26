@@ -25,6 +25,10 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ExceptionCryptographie, IOException {
+        NombreBinaire b = NombreBinaire.random(new NombreBinaire("0"), new NombreBinaire("1"));
+        System.out.println(b.toString());
+        
+        
         Client c = new Client();
         String str="";
         
