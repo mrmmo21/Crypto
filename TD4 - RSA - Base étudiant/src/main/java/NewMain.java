@@ -31,12 +31,8 @@ public class NewMain {
         String str="";
         str = c.receiveMessage(); 
         Defis d = FabriqueDefi.fabriqueDef(c, str);
-        d.lancerDefi(c, str);  
+        d.lancerDefi(c, str);
     }
-
-    
-   
-    
     public static void defPGCD(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
         String nb2 = "";
@@ -52,8 +48,7 @@ public class NewMain {
             c.sendMessage(b.toString());
         }
         
-    }    
-    
+    } 
     public static void defPuissModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
         String nb2 = "";
@@ -76,7 +71,6 @@ public class NewMain {
         }
         
     }
-    
     public static void defQuotient(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
         String nb2 = "";
@@ -93,9 +87,6 @@ public class NewMain {
         }
         
     }
-    
-    
- 
     public static void defrandomBorne(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb2 = "";
         String nb1 = "";
@@ -113,7 +104,6 @@ public class NewMain {
         }
         
     }
-    
     public static void defrandomFixe(Client c, String str) throws IOException{
         String nb2 = "";
         String nb1 = "";
@@ -130,7 +120,6 @@ public class NewMain {
         }
         
     }
-    
     public static void defDecal(Client c, String str) throws IOException{
         String MotBinaire = "";
         String nb = "";
@@ -147,7 +136,6 @@ public class NewMain {
         }
         
     }
-
     public static void defMult(Client c, String str) throws IOException{
         String nb1 = "";
         String nb2 = "";
@@ -180,7 +168,6 @@ public class NewMain {
         }
         
     }
-    
     public static void defEgal(Client c, String str) throws IOException{
         String nb1 = "";
         String nb2 = "";
@@ -200,7 +187,6 @@ public class NewMain {
         }
         
     }
-    
     public static void defInférieur(Client c, String str) throws IOException{
         String nb1 = "";
         String nb2 = "";
