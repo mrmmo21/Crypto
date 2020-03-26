@@ -33,6 +33,7 @@ public class NewMain {
         Defis d = FabriqueDefi.fabriqueDef(c, str);
         d.lancerDefi(c, str);   
     }
+
     
    
     

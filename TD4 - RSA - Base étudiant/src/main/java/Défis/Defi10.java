@@ -41,7 +41,6 @@ public class Defi10 implements Defis {
                     str = "FIN";
                 }
             }
-            
         }
         c.end();
     }
