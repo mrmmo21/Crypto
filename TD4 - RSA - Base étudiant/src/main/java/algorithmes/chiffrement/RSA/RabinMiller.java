@@ -66,7 +66,7 @@ public class RabinMiller {
            res = min.addition(t);
            while(!testRabinMiller(res))
            {
-               if(res.toString().charAt(res.toString().length())=='0')
+               if(res.toString().charAt(res.toString().length()-1)=='0')
                {
                    res=res.addition(t);
                }

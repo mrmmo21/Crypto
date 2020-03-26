@@ -16,7 +16,7 @@ public class FabriqueDefi {
     
     public static Defis fabriqueDef(Client c, String str) throws Exception{
         Defis d;
-        //System.out.println(str);
+        System.out.println(str);
         switch(str){
             case "-- Début du défi : Connexion au serveur --" :
                 d = new Defi1();
@@ -84,7 +84,7 @@ public class FabriqueDefi {
             case "– Début du défi : Connexion au erveur –" :
                 d = new Defi22();
             break;
-            case "– Début du défi : Conneion au serveur –" :
+            case "-- Début du défi : Nombre Premier --" :
                 d = new Defi23();
             break;
             case "– Début du défi : Conexion au sereur –" :
