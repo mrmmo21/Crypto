@@ -24,8 +24,6 @@ public class RabinMiller {
         NombreBinaire d = new NombreBinaire(nb.substring(0, nb.length()-s));
         NombreBinaire x = new NombreBinaire(a.puissanceModulo(d, n));
         if (x.estEgal(sous) || x == n.soustraction(sous) )
-            return false;
-        else
         {
             return false;
         }
