@@ -70,7 +70,7 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
                 {
                     random2 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
                     try {
-                        p = RabinMiller.nombrePremier(random1);
+                        p = RabinMiller.nombrePremier(random2);
                     } catch (ExceptionConversionImpossible ex) {
                         Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, "could not generate 'p'", ex);
                     }
