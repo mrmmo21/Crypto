@@ -307,9 +307,11 @@ public class NombreBinaire {
          return new NombreBinaire(q);
      }
      
-     //Calcul de this^exposant modulo m par exponentiation modulaire rapide
-     public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-         return null;
+     public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) throws ExceptionConversionImpossible {
+         NombreBinaire res = null ;    
+         
+       
+       return res ;
      }
      
      
@@ -344,25 +346,40 @@ public class NombreBinaire {
      
      
      public NombreBinaire PGCD(NombreBinaire mot2) throws ExceptionConversionImpossible {
-        NombreBinaire bin1 = this;
-        NombreBinaire bin2 = mot2;
+        NombreBinaire bin1; 
+        NombreBinaire bin2;
+
+        if(this.getTaille()<mot2.getTaille()){
+            bin1 = this;
+            bin2 = mot2;
+        }
+        else
+        {
+            bin2 = this;
+            bin1 = mot2;
+        }
+       
         NombreBinaire binTemp = new NombreBinaire();
-         while(!bin1.equals(0))
+        
+        
+        
+        if(bin1.estInferieurA(bin2))
             {
-                if(bin1.estInferieurA(bin2))
+                while(!bin1.estEgal(new NombreBinaire('0')))
                 {
                     binTemp = bin2;
                     bin2 = bin1;
-                    bin1 = binTemp.modulo(bin1);
-
                 }
-                else
+            }
+            else
+            {
+                while(!bin1.estEgal(new NombreBinaire('0')))
                 {
                     binTemp = bin1;
                     bin1 = bin2;
                     bin2 = binTemp.modulo(bin2); 
                 }
-            } 
+            }
        return binTemp;
      }
      
