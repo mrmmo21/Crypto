@@ -31,8 +31,12 @@ public class NewMain {
         String str="";
         str = c.receiveMessage(); 
         Defis d = FabriqueDefi.fabriqueDef(c, str);
-        d.lancerDefi(c, str);
-        
+        d.lancerDefi(c, str);  
+            str = c.receiveMessage();
+                       
+            
+        Defis d = FabriqueDefi.fabriqueDef(c, str);
+         d.lancerDefi(c, str);
     }
     
    
@@ -69,6 +73,8 @@ public class NewMain {
             NombreBinaire bin1 = new NombreBinaire(nb1);
             NombreBinaire bin2 = new NombreBinaire(nb2);
             NombreBinaire bin3 = new NombreBinaire(nb3);
+            NombreBinaire b = bin1.puissanceModulo(bin2, bin3);
+            c.sendMessage(b.toString());
             //NombreBinaire b = bin1.puissanceModulo(bin2, bin3));
             //c.sendMessage(b.toString());
         }
