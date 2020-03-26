@@ -309,20 +309,21 @@ public class NombreBinaire {
      //Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) throws ExceptionConversionImpossible {
          
-         NombreBinaire a = new NombreBinaire(this);
+         NombreBinaire a = this;
          NombreBinaire e = new NombreBinaire(exposant);
          NombreBinaire n = new NombreBinaire(m);
          NombreBinaire p = new NombreBinaire(1);
-         while (e.estInferieurA(new NombreBinaire(0)))
+         while (!e.estInferieurA(new NombreBinaire(0)))
          {
-             if (e.modulo(new NombreBinaire(2))!= (new NombreBinaire(0)))
+             if (!((e.modulo(new NombreBinaire(2))).estEgal(new NombreBinaire(0))))
              {
                  p = (p.multiplication(a)).modulo(n);
                  a = (a.multiplication(a)).modulo(n);
              }
+             e = e.quotient(new NombreBinaire(2));
          }
        return p ;
-     }     
+     }
      
     public boolean estEgal(NombreBinaire mot2) {
 

@@ -46,8 +46,8 @@ public class NewMain {
             //defrandomBorne(c,str);
             //defModulo(c,str);
             //defQuotient(c,str);
-            defPGCD(c,str);
-            //defPuissModulo(c,str);
+            //defPGCD(c,str);
+            defPuissModulo(c,str);
         }
     }
     
@@ -106,7 +106,7 @@ public class NewMain {
             NombreBinaire bin1 = new NombreBinaire(nb1);
             NombreBinaire bin2 = new NombreBinaire(nb2);
             NombreBinaire bin3 = new NombreBinaire(nb3);
-            NombreBinaire b = bin1.puissanceModulo(bin2, bin3));
+            NombreBinaire b = bin1.puissanceModulo(bin2, bin3);
             c.sendMessage(b.toString());
         }
         
