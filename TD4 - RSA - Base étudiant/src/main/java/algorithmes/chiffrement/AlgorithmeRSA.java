@@ -6,8 +6,10 @@ import donnees.NombreBinaire;
 import donnees.cles.Cle;
 import donnees.cles.Cles;
 import donnees.messages.Message;
+import donnees.messages.MessageBinaire;
 import exceptions.ExceptionConversionImpossible;
 import exceptions.ExceptionCryptographie;
+import java.util.ArrayList;
 
 public class AlgorithmeRSA implements Algorithme{
 
@@ -44,8 +46,13 @@ public class AlgorithmeRSA implements Algorithme{
 
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-       //TODO
-       return null;
+       ArrayList<MotBinaire> rsaChunks = message.asMotBinaire().scinder(ParametresRSA.getTailleMorceau());
+       MotBinaire result = new MotBinaire();
+       for (MotBinaire b : rsaChunks)
+       {
+           result.concatenation(dechiffrerMorceau(b, clesPubliques, clesPrivees));
+       }
+       return new MessageBinaire(result);
     }
 
 }
