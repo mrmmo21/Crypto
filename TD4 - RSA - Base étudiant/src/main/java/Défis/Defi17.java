@@ -8,11 +8,9 @@ package Défis;
 
 import algorithmes.chiffrement.AlgorithmeRSA;
 import algorithmes.chiffrement.RSA.ParametresRSA;
-import algorithmes.generateurdecles.GenerateurDeClesRSA;
 import coucheReseau.client.Client;
 import donnees.MotBinaire;
 import donnees.NombreBinaire;
-import donnees.cles.Cle;
 import donnees.cles.CleBinaire;
 import donnees.cles.Cles;
 import exceptions.ExceptionConversionImpossible;
