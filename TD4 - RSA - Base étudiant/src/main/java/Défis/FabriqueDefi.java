@@ -42,7 +42,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Multiplication --":
                 d = new Defi8();
             break;
-            case "-- Début du défi : Quotient --": //JE SUIS LA MDR
+            case "-- Début du défi : Quotient --": 
                 d = new Defi9();
             break;
             case "-- Début du défi : Modulo --":
@@ -66,13 +66,13 @@ public class FabriqueDefi {
             case "-- Début du défi : Temoin de Rabin-Miller --" :
                 d = new Defi16();
             break;
-            case "– Début du défi : Connion au serveur –" :
+            case "-- Début du défi : Chiffrer un morceau --" :
                 d = new Defi17();
             break;
-            case "– Début du défi : Conexion au serveur –" :
+            case "-- Début du défi : Dechiffrer un morceau --" :
                 d = new Defi18();
             break;
-            case "– Début du défi : Connexin au serveur –" :
+            case "-- Début du défi : Test de Rabin-Miller --" :
                 d = new Defi19();
             break;
             case "-- Début du défi : Generer cle privee --" :
