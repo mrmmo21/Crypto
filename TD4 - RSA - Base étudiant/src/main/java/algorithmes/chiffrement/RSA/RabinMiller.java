@@ -14,7 +14,6 @@ public class RabinMiller {
     //Méthode renvoyant si a est un témoin de Miller de n (preuve que n est composé)
     public static boolean temoin(NombreBinaire n, NombreBinaire a) throws ExceptionConversionImpossible {
        int s = 0;
-       boolean res;
        NombreBinaire sous = new NombreBinaire(1);
        String nb = n.soustraction(sous).toString();
        while (nb.charAt(nb.length()-s-1) == '0')
