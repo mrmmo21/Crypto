@@ -26,6 +26,7 @@ public class RabinMiller {
         if (x.estEgal(sous) || x == n.soustraction(sous) )
         {
             res = false;
+            
             for (int i = 0; i < s-1; i++)
             {
                 x = x.puissanceModulo(sous.addition(sous), n);
