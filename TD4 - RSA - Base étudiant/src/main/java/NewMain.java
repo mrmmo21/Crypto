@@ -47,6 +47,13 @@ public class NewMain {
             //defModulo(c,str);
             //defQuotient(c,str);
             defPGCD(c,str);
+            //defPuissModulo(c,str);
+        }
+    }
+    
+    public static void choisirDef(Client c, String str){
+        switch(str){
+            
         }
     }
     
@@ -66,7 +73,6 @@ public class NewMain {
         }
         
     }
-    
     public static void defModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
         String nb2 = "";
@@ -79,6 +85,28 @@ public class NewMain {
             nb2 = c.receiveMessage();
             NombreBinaire bin1 = new NombreBinaire(nb1);
             NombreBinaire b = bin1.modulo(new NombreBinaire(nb2));
+            c.sendMessage(b.toString());
+        }
+        
+    }
+    
+    
+    public static void defPuissModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
+        String nb1 = "";
+        String nb2 = "";
+        String nb3 = "";
+        if(str.equals("FIN")){
+            c.end();
+        }
+        else 
+        {
+            nb1 = c.receiveMessage();
+            nb2 = c.receiveMessage();
+            nb3 = c.receiveMessage();
+            NombreBinaire bin1 = new NombreBinaire(nb1);
+            NombreBinaire bin2 = new NombreBinaire(nb2);
+            NombreBinaire bin3 = new NombreBinaire(nb3);
+            NombreBinaire b = bin1.puissanceModulo(bin2, bin3));
             c.sendMessage(b.toString());
         }
         
