@@ -45,11 +45,27 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
 
     @Override
     public Cles genererClePublique() {
-       NombreBinaire p = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-       NombreBinaire q = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+        NombreBinaire random1 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+        NombreBinaire random2 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+        NombreBinaire p = null;
+        try {
+            p = RabinMiller.nombrePremier(random1);
+        } catch (ExceptionConversionImpossible ex) {
+            Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, "could not find 'p'", ex);
+        }
+        NombreBinaire q = null;
+        try {
+            q = RabinMiller.nombrePremier(random2);
+        } catch (ExceptionConversionImpossible ex) {
+            Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, "could not find 'q'", ex);
+        }
+        if (q == null || p == null) throw new NullPointerException("p or q is null");
         try {
             while (p.estEgal(q) || !RabinMiller.testRabinMiller(p) || !RabinMiller.testRabinMiller(q))
             {
+                System.out.println(p.estEgal(q));
+                System.out.println("Rabin Miller p : " + RabinMiller.testRabinMiller(p));
+                System.out.println("Rabin Miller q : " + RabinMiller.testRabinMiller(q));
                 if (p.estEgal(q))
                 {
                     if (!RabinMiller.testRabinMiller(p) && RabinMiller.testRabinMiller(q))
@@ -77,8 +93,9 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
         phi = (P.soustraction(one)).multiplication(Q.soustraction(one));
         NombreBinaire eP = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
         try {
-            while (RabinMiller.temoin(e, phi))
+            while (RabinMiller.temoin(eP, phi))
                 eP = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+            e = eP;
         } catch (ExceptionConversionImpossible ex) {
             Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, "RabinMiller.temoin -> crash", ex);
         }
