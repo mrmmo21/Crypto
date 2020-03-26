@@ -72,7 +72,7 @@ public class FabriqueDefi {
             case "– Début du défi : Conexion au serveur –" :
                 d = new Defi18();
             break;
-            case "– Début du défi : Connexin au serveur –" :
+            case "-- Début du défi : Test de Rabin-Miller --" :
                 d = new Defi19();
             break;
             case "-- Début du défi : Generer cle privee --" :
