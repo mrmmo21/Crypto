@@ -22,7 +22,7 @@ public class Defi20 implements Defis {
 
     @Override
     public void lancerDefi(Client c, String str) throws IOException, ExceptionConversionImpossible {
-         while(!str.equals("FIN")){
+        while(!str.equals("FIN")){
             String nb1 = "";
             String nb2 = "";
             String nb3 = "";
@@ -45,8 +45,8 @@ public class Defi20 implements Defis {
                     gene.setE(bin3);
                     Cles cles= gene.genererClePrivee();
                     Cle cle = cles.getCle("cleRSA");
-                    NombreBinaire b = cle.asMotBinaire().asNombreBinaire();
-                    c.sendMessage(b.toString());
+                    String s = cle.asMotBinaire().toString();
+                    c.sendMessage(s);
                 }
                 str = c.receiveMessage();
                 if(str.equals("NOK"))

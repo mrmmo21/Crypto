@@ -14,7 +14,6 @@ public class RabinMiller {
     //Méthode renvoyant si a est un témoin de Miller de n (preuve que n est composé)
     public static boolean temoin(NombreBinaire n, NombreBinaire a) throws ExceptionConversionImpossible {
        int s = 0;
-       boolean res;
        NombreBinaire sous = new NombreBinaire(1);
        String nb = n.soustraction(sous).toString();
        while (nb.charAt(nb.length()-s-1) == '0')
@@ -23,7 +22,7 @@ public class RabinMiller {
         }
         NombreBinaire d = new NombreBinaire(nb.substring(0, nb.length()-s));
         NombreBinaire x = new NombreBinaire(a.puissanceModulo(d, n));
-        if (x.estEgal(sous) || x == n.soustraction(sous) )
+        if (x.estEgal(sous) || x.estEgal(n.soustraction(sous)))
         {
             return false;
         }
@@ -32,10 +31,11 @@ public class RabinMiller {
             for (int i = 0; i < s-1; i++)
             {
                 x = x.puissanceModulo(sous.addition(sous), n);
-                if(x == n.soustraction(sous))
+                if(x.estEgal( n.soustraction(sous)))
                 {
                     return false;
                 }
+
             } 
         }
         return true;
@@ -65,7 +65,7 @@ public class RabinMiller {
            res = min.addition(t);
            while(!testRabinMiller(res))
            {
-               if(res.toString().charAt(res.toString().length())=='0')
+               if(res.toString().charAt(res.toString().length()-1)=='0')
                {
                    res=res.addition(t);
                }
