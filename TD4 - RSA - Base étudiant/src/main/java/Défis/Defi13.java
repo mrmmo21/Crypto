@@ -32,7 +32,7 @@ public class Defi13 implements Defis {
                 {   
                     nb2 = c.receiveMessage();
                     NombreBinaire bin1 = new NombreBinaire(nb1);
-                    NombreBinaire b = bin1.modulo(new NombreBinaire(nb2));
+                    NombreBinaire b = bin1.PGCD(new NombreBinaire(nb2));
                     c.sendMessage(b.toString());
                 }
                 str = c.receiveMessage();

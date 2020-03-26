@@ -48,7 +48,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Modulo --":
                 d = new Defi10();
             break;
-            case "– Début du défi : Connexion au serveur –" :
+            case "-- Début du défi : Random avec taille --" :
                 d = new Defi11();
             break;
             case "-- Début du défi : Puissance Modulo --" :
@@ -57,13 +57,13 @@ public class FabriqueDefi {
             case "– Début du défi : Connon au serveur –" :
                 d = new Defi13();
             break;
-            case "– Début du défi : Connex au serveur –" :
+            case "-- Début du défi : Random avec bornes --" :
                 d = new Defi14();
             break;
             case "-- Début du défi : Inverse Modulaire --" :
                 d = new Defi15();
             break;
-            case "– Début du défi : Connexon au serveur –" :
+            case "-- Début du défi : Temoin de Rabin-Miller --" :
                 d = new Defi16();
             break;
             case "– Début du défi : Connion au serveur –" :
