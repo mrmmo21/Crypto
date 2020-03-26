@@ -31,7 +31,7 @@ public class NewMain {
         String str="";
         str = c.receiveMessage(); 
         Defis d = FabriqueDefi.fabriqueDef(c, str);
-        d.lancerDefi(c, str);  
+        d.lancerDefi(c, str);   
     }
     
    
