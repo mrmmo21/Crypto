@@ -56,9 +56,6 @@ public class NewMain {
             //defPGCD(c,str);
             defPuissModulo(c,str);
         }
-            //defPuissModulo(c,str);
-       // }
-    }
     
    
     
