@@ -26,36 +26,13 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        NombreBinaire b = NombreBinaire.random(new NombreBinaire("0"), new NombreBinaire("1"));
-        System.out.println(b.toString());
-        
-        
+    
         Client c = new Client();
         String str="";
+        str = c.receiveMessage(); 
+        Defis d = FabriqueDefi.fabriqueDef(c, str);
+        d.lancerDefi(c, str);
         
-       // while(!str.equals("FIN")){
-            
-            str = c.receiveMessage();
-                       
-            
-            Defis d = FabriqueDefi.fabriqueDef(c, str);
-            d.lancerDefi(c, str);
-            
-            //defInférieur(c,str);
-            //defAdd(c,str);
-            //defEgal(c,str);
-            //defDecal(c,str);
-            //defSous(c,str);
-            //defMult(c,str);
-            //defrandomFixe(c,str);
-            
-            
-            //defrandomBorne(c,str);
-            //defModulo(c,str);
-            //defQuotient(c,str);
-            //defPGCD(c,str);
-            //defPuissModulo(c,str);
-       // }
     }
     
    
@@ -75,24 +52,7 @@ public class NewMain {
             c.sendMessage(b.toString());
         }
         
-    }
-    public static void defModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
-        String nb1 = "";
-        String nb2 = "";
-        if(str.equals("FIN")){
-            c.end();
-        }
-        else 
-        {
-            nb1 = c.receiveMessage();
-            nb2 = c.receiveMessage();
-            NombreBinaire bin1 = new NombreBinaire(nb1);
-            NombreBinaire b = bin1.modulo(new NombreBinaire(nb2));
-            c.sendMessage(b.toString());
-        }
-        
-    }
-    
+    }    
     
     public static void defPuissModulo(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
@@ -185,22 +145,7 @@ public class NewMain {
         }
         
     }
-    public static void defAdd(Client c, String str) throws IOException{
-        String nb1 = "";
-        String nb2 = "";
-        if(str.equals("FIN")){
-            c.end();
-        }
-        else 
-        {
-            nb1 = c.receiveMessage();
-            nb2 = c.receiveMessage();
-            NombreBinaire bin1 = new NombreBinaire(nb1);
-            NombreBinaire b = bin1.addition(new NombreBinaire(nb2));
-            c.sendMessage(b.toString());
-        }
-        
-    }
+
     public static void defMult(Client c, String str) throws IOException{
         String nb1 = "";
         String nb2 = "";
