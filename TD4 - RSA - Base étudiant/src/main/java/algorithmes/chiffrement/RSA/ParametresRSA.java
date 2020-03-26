@@ -18,5 +18,4 @@ public class ParametresRSA {
     public static int getTailleDemiCle() {
         return TAILLEMDEMICLE;
     }
-    
 }

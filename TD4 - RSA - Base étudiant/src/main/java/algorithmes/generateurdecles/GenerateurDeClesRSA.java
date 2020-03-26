@@ -61,27 +61,20 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
         }
         if (q == null || p == null) throw new NullPointerException("p or q is null");
         try {
-            while (p.estEgal(q) || !RabinMiller.testRabinMiller(p) || !RabinMiller.testRabinMiller(q))
+            while (p.estEgal(q))
             {
                 System.out.println(p.estEgal(q));
                 System.out.println("Rabin Miller p : " + RabinMiller.testRabinMiller(p));
                 System.out.println("Rabin Miller q : " + RabinMiller.testRabinMiller(q));
                 if (p.estEgal(q))
                 {
-                    if (!RabinMiller.testRabinMiller(p) && RabinMiller.testRabinMiller(q))
-                        p = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-                    else if (RabinMiller.testRabinMiller(p) && !RabinMiller.testRabinMiller(q))
-                        q = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-                    else
-                    {
-                        p = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-                        q = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+                    random2 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
+                    try {
+                        p = RabinMiller.nombrePremier(random1);
+                    } catch (ExceptionConversionImpossible ex) {
+                        Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, "could not generate 'p'", ex);
                     }
                 }
-                if (!RabinMiller.testRabinMiller(p))
-                    p = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
-                if (!RabinMiller.testRabinMiller(q))
-                    q = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
             }
         } catch (ExceptionConversionImpossible ex) {
             Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, null, ex);
