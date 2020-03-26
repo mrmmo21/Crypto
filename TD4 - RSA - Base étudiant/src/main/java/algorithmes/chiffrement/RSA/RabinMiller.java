@@ -1,6 +1,7 @@
 package algorithmes.chiffrement.RSA;
 
 import donnees.NombreBinaire;
+import static donnees.NombreBinaire.*;
 
 /**
  * Description de la classe
@@ -42,8 +43,17 @@ public class RabinMiller {
     
     //Test de RabinMiller, test probabilistiquement que n est premier (proba erreur = 1/4^k)
     public static boolean testRabinMiller(NombreBinaire n) {
-       //TODO
-       return false;
+       boolean res = true;
+       NombreBinaire s = new NombreBinaire(2);
+       for(int i = 1; i<=25; i++)
+       {
+           NombreBinaire a = random(s,n.soustraction(s));
+           if(temoin(n,a))
+           {
+               res = false;
+           }
+       }
+       return res;
     }
     
     //Renvoie le premier nombre premier supérieur à min
