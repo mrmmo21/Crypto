@@ -13,6 +13,6 @@ import coucheReseau.client.Client;
  */
 public interface Defis {
     
-    public void lancerDefi(Client c, String str);
+    public void lancerDefi(Client c, String str)throws Exception;
     
 }

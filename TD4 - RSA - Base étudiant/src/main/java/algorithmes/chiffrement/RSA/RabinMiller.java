@@ -14,7 +14,7 @@ public class RabinMiller {
     //Méthode renvoyant si a est un témoin de Miller de n (preuve que n est composé)
     public static boolean temoin(NombreBinaire n, NombreBinaire a) throws ExceptionConversionImpossible {
        int s = 0;
-       boolean res = false;
+       boolean res;
        NombreBinaire sous = new NombreBinaire(1);
        String nb = n.soustraction(sous).toString();
        while (nb.charAt(nb.length()-s) == 0)
@@ -58,8 +58,28 @@ public class RabinMiller {
     }
     
     //Renvoie le premier nombre premier supérieur à min
-    public static NombreBinaire nombrePremier(NombreBinaire min) {
-       //TODO
-       return null;
+    public static NombreBinaire nombrePremier(NombreBinaire min) throws ExceptionConversionImpossible {
+       NombreBinaire t = new NombreBinaire(1);
+       NombreBinaire res;
+       if (!testRabinMiller(min))
+       {
+           res = min.addition(t);
+           while(!testRabinMiller(res))
+           {
+               if(res.toString().charAt(res.toString().length())=='0')
+               {
+                   res=res.addition(t);
+               }
+               else
+               {
+                   res=res.addition(t).addition(t);
+               }
+           }
+       }
+       else
+       {
+           res = min;
+       }
+       return res;
     }
 }
