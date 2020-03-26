@@ -7,6 +7,8 @@
 package Défis;
 
 import coucheReseau.client.Client;
+import donnees.NombreBinaire;
+import exceptions.ExceptionConversionImpossible;
 
 /**
  *
@@ -15,8 +17,33 @@ import coucheReseau.client.Client;
 public class Defi10 implements Defis {
 
     @Override
-    public void lancerDefi(Client c, String str) {
+    public void lancerDefi(Client c, String str) throws Exception {
         
+        while(!str.equals("FIN")){
+            String nb1 = "";
+            String nb2 = "";
+            if(str.equals("FIN")){
+                c.end();
+            }
+            else 
+            {
+                nb1 = c.receiveMessage();
+                if(nb1.charAt(0) != 'D')
+                {   
+                    nb2 = c.receiveMessage();
+                    NombreBinaire bin1 = new NombreBinaire(nb1);
+                    NombreBinaire b = bin1.modulo(new NombreBinaire(nb2));
+                    c.sendMessage(b.toString());
+                }
+                str = c.receiveMessage();
+                if(str.equals("NOK"))
+                {
+                    str = "FIN";
+                }
+            }
+            
+        }
+        c.end();
     }
     
 }
