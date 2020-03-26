@@ -18,7 +18,7 @@ public class FabriqueDefi {
         Defis d;
         System.out.println(str);
         switch(str){
-            case "–- Début du défi : Connexion au serveur –-" :
+            case "-- Début du défi : Connexion au serveur --" :
                 d = new Defi1();
             break;
             case "-- Début du défi : Addition --":
