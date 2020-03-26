@@ -81,7 +81,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Chiffrer --" :
                 d = new Defi21();
             break;
-            case "– Début du défi : Connexion au erveur –" :
+            case "-- Début du défi : Dechiffrer --" :
                 d = new Defi22();
             break;
             case "-- Début du défi : Nombre Premier --" :

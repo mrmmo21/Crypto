@@ -23,24 +23,19 @@ public class Defi24 implements Defis {
     @Override
     public void lancerDefi(Client c, String str) throws IOException, ExceptionConversionImpossible {
         while(!str.equals("FIN")){
-            String nb1 = "";
-            String nb2 = "";
-            String nb3 = "";
             if(str.equals("FIN")){
                 c.end();
             }
             else 
             {
-                nb1 = c.receiveMessage();
-                if(nb1.charAt(0) != 'D')
-                {
-                    GenerateurDeClesRSA gene = new GenerateurDeClesRSA();
-                    Cles cles= gene.genererClePublique();
-                    c.sendMessage(gene.getP().toString());
-                    c.sendMessage(gene.getQ().toString());
-                    c.sendMessage(gene.getN().toString());
-                    c.sendMessage(gene.getPhi().toString());       
-                    c.sendMessage(gene.getE().toString());}
+                GenerateurDeClesRSA gene = new GenerateurDeClesRSA();
+                Cles cles= gene.genererClePublique();
+                c.sendMessage(gene.getP().toString());
+                c.sendMessage(gene.getQ().toString());
+                c.sendMessage(gene.getN().toString());
+                c.sendMessage(gene.getPhi().toString());       
+                c.sendMessage(gene.getE().toString());
+            
                 str = c.receiveMessage();
                 if(str.equals("NOK"))
                 {

@@ -52,11 +52,11 @@ public class AlgorithmeRSA implements Algorithme{
 
     @Override
     public Message dechiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-       ArrayList<MotBinaire> rsaChunks = message.asMotBinaire().scinder(ParametresRSA.getTailleMorceau());
+       ArrayList<MotBinaire> rsaChunks = message.asMotBinaire().scinder(ParametresRSA.getTailleCle());
        MotBinaire result = new MotBinaire();
        for (MotBinaire b : rsaChunks)
        {
-           result.concatenation(dechiffrerMorceau(b, clesPubliques, clesPrivees));
+           result = result.concatenation(dechiffrerMorceau(b, clesPubliques, clesPrivees));
        }
        return new MessageBinaire(result);
     }
