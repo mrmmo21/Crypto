@@ -6,8 +6,10 @@ import donnees.NombreBinaire;
 import donnees.cles.Cle;
 import donnees.cles.Cles;
 import donnees.messages.Message;
+import donnees.messages.MessageBinaire;
 import exceptions.ExceptionConversionImpossible;
 import exceptions.ExceptionCryptographie;
+import java.util.ArrayList;
 
 public class AlgorithmeRSA implements Algorithme{
 
@@ -23,8 +25,8 @@ public class AlgorithmeRSA implements Algorithme{
         NombreBinaire cleRSA_e = clesPublique.getCle("cleRSA_e").asMotBinaire().asNombreBinaire();
         NombreBinaire morceauNombreBinaire = morceau.asNombreBinaire();
         morceauNombreBinaire = morceauNombreBinaire.puissanceModulo(cleRSA_e,cleRSA_N);
-        MotBinaire res = new MotBinaire(morceauNombreBinaire,ParametresRSA.getTailleCle());
-       return res;
+        MotBinaire res = new MotBinaire(morceauNombreBinaire,ParametresRSA.getTailleMorceau()+2);
+        return res;
     }
     
     //Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
@@ -35,8 +37,14 @@ public class AlgorithmeRSA implements Algorithme{
 
     @Override
     public Message chiffrer(Message message, Cles clesPubliques, Cles clesPrivees) throws ExceptionCryptographie {
-       //TODO
-       return null;
+       MotBinaire motBin = message.asMotBinaire();
+       ArrayList<MotBinaire> motBins = motBin.scinder(ParametresRSA.getTailleMorceau());
+       MotBinaire msg = new MotBinaire();
+       
+        for (int i = 0; i < motBins.size(); i++) {
+            msg = msg.concatenation(this.chiffrerMorceau(motBins.get(i),clesPubliques));
+        }
+       return new MessageBinaire(msg);
     }
 
     @Override
