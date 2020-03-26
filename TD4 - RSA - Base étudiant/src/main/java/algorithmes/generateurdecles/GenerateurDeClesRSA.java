@@ -45,6 +45,7 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
 
     @Override
     public Cles genererClePublique() {
+        System.out.println("Generating");
         NombreBinaire random1 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
         NombreBinaire random2 = NombreBinaire.randomAvecTailleMax(ParametresRSA.getTailleCle());
         NombreBinaire p = null;
