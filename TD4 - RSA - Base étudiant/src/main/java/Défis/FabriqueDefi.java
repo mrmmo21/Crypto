@@ -30,19 +30,19 @@ public class FabriqueDefi {
             case "-- Début du défi : Soustraction --":
                 d = new Defi4();
             break;
-            case "-- Début du défi : Adiion --":
+            case "-- Début du défi : Est Inferieur --":
                 d = new Defi5();
             break;
-            case "-- Début du défi : Adition --":
+            case "-- Début du défi : Est Egal --":
                 d = new Defi6();
             break;
-            case "-- Début du éfi : Addition --":
+            case "-- Début du défi : Est Pair --":
                 d = new Defi7();
             break;
-            case "-- Début du déf : Addition --":
+            case "-- Début du défi : Multiplication --":
                 d = new Defi8();
             break;
-            case "-- Débt du défi : Addition --":
+            case "-- Début du défi : Quotient --":
                 d = new Defi9();
             break;
             case "-- Début du défi : Modulo --":
@@ -54,7 +54,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Puissance Modulo --" :
                 d = new Defi12();
             break;
-            case "– Début du défi : Connon au serveur –" :
+            case "-- Début du défi : PGCD --" :
                 d = new Defi13();
             break;
             case "-- Début du défi : Random avec bornes --" :
