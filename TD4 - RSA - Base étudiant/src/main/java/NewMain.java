@@ -4,8 +4,6 @@ import donnees.NombreBinaire;
 import exceptions.ExceptionConversionImpossible;
 import exceptions.ExceptionCryptographie;
 import java.io.IOException;
-import protocoles.Protocole;
-import protocoles.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -51,7 +49,6 @@ public class NewMain {
             defPGCD(c,str);
         }
     }
-    
     
     public static void defPGCD(Client c, String str) throws IOException, ExceptionConversionImpossible{
         String nb1 = "";
