@@ -31,21 +31,10 @@ public class Defi24 implements Defis {
             }
             else 
             {
-                
-            
-        
                 nb1 = c.receiveMessage();
                 if(nb1.charAt(0) != 'D')
                 {
-                    nb2 = c.receiveMessage();
-                    nb3 = c.receiveMessage();
-                    NombreBinaire bin1 = new NombreBinaire(nb1);
-                    NombreBinaire bin2 = new NombreBinaire(nb2);
-                    NombreBinaire bin3 = new NombreBinaire(nb3);
                     GenerateurDeClesRSA gene = new GenerateurDeClesRSA();
-                    gene.setP(bin1);
-                    gene.setQ(bin2);
-                    gene.setE(bin3);
                     Cles cles= gene.genererClePublique();
                     c.sendMessage(gene.getP().toString());
                     c.sendMessage(gene.getQ().toString());
