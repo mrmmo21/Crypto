@@ -22,7 +22,7 @@ public class Defi20 implements Defis {
 
     @Override
     public void lancerDefi(Client c, String str) throws IOException, ExceptionConversionImpossible {
-         while(!str.equals("FIN")){
+        while(!str.equals("FIN")){
             String nb1 = "";
             String nb2 = "";
             String nb3 = "";

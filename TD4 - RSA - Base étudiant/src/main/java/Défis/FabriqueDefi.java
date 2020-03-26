@@ -87,7 +87,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Nombre Premier --" :
                 d = new Defi23();
             break;
-            case "– Début du défi : Conexion au sereur –" :
+            case "-- Début du défi : Generer cle publique --" :
                 d = new Defi24();
             break;
             default:
