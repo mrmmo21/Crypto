@@ -30,7 +30,7 @@ public class Defi12 implements Defis {
             else 
             {
                 nb1 = c.receiveMessage();
-                if(nb1.charAt(0) == 'D')
+                if(nb1.charAt(0) != 'D')
                 {
                     nb2 = c.receiveMessage();
                     nb3 = c.receiveMessage();
