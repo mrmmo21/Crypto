@@ -18,7 +18,7 @@ public class FabriqueDefi {
         Defis d;
         System.out.println(str);
         switch(str){
-            case "–- Début du défi : Connexion au serveur –-" :
+            case "-- Début du défi : Connexion au serveur --" :
                 d = new Defi1();
             break;
             case "-- Début du défi : Addition --":
@@ -27,7 +27,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Décalage --":
                 d = new Defi3();
             break;
-            case "-- Début du défi : Addiion --":
+            case "-- Début du défi : Soustraction --":
                 d = new Defi4();
             break;
             case "-- Début du défi : Adiion --":
@@ -48,7 +48,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Modulo --":
                 d = new Defi10();
             break;
-            case "– Début du défi : Connexion au serveur –" :
+            case "-- Début du défi : Random avec taille --" :
                 d = new Defi11();
             break;
             case "-- Début du défi : Puissance Modulo --" :
@@ -57,25 +57,25 @@ public class FabriqueDefi {
             case "– Début du défi : Connon au serveur –" :
                 d = new Defi13();
             break;
-            case "– Début du défi : Connex au serveur –" :
+            case "-- Début du défi : Random avec bornes --" :
                 d = new Defi14();
             break;
             case "-- Début du défi : Inverse Modulaire --" :
                 d = new Defi15();
             break;
-            case "– Début du défi : Connexon au serveur –" :
+            case "-- Début du défi : Temoin de Rabin-Miller --" :
                 d = new Defi16();
             break;
             case "– Début du défi : Connion au serveur –" :
-                d = new Defi18();
+                d = new Defi17();
             break;
             case "– Début du défi : Conexion au serveur –" :
-                d = new Defi19();
+                d = new Defi18();
             break;
             case "– Début du défi : Connexin au serveur –" :
                 d = new Defi19();
             break;
-            case "– Début du défi : Connexon au seveur –" :
+            case "-- Début du défi : Generer cle privee --" :
                 d = new Defi20();
             break;
             case "– Début du défi : Connxion au serveur –" :

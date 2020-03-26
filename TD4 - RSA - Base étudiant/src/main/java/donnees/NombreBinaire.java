@@ -323,19 +323,6 @@ public class NombreBinaire {
              a = (a.multiplication(a)).modulo(n);
          }
        return p ;
-         /*NombreBinaire base = this;
-         NombreBinaire exponent = exposant; 
-         NombreBinaire modulus = m;
-         if (modulus.estEgal(new NombreBinaire(1))){
-             return new NombreBinaire(0);
-         }
-         NombreBinaire c = new NombreBinaire(1);
-         NombreBinaire cpt = new NombreBinaire(0);
-         while(!cpt.estEgal(exponent.soustraction(new NombreBinaire(1)))){
-             c = (c.multiplication(base)).modulo(modulus);
-             cpt = cpt.addition(new NombreBinaire(1));
-         }
-         return c;*/
      }
      
     public boolean estEgal(NombreBinaire mot2) {

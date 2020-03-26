@@ -17,7 +17,7 @@ public class RabinMiller {
        boolean res;
        NombreBinaire sous = new NombreBinaire(1);
        String nb = n.soustraction(sous).toString();
-       while (nb.charAt(nb.length()-s) == 0)
+       while (nb.charAt(nb.length()-s-1) == '0')
         {
                 s+=1;
         }
@@ -27,6 +27,10 @@ public class RabinMiller {
             return false;
         else
         {
+            return false;
+        }
+        else
+        {
             for (int i = 0; i < s-1; i++)
             {
                 x = x.puissanceModulo(sous.addition(sous), n);
@@ -34,7 +38,7 @@ public class RabinMiller {
                 {
                     return false;
                 }
-            }
+            } 
         }
         return true;
     }

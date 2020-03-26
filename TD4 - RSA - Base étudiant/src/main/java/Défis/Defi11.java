@@ -29,9 +29,7 @@ public class Defi11 implements Defis {
                 nb1 = c.receiveMessage();
                 if(nb1.charAt(0) != 'D')
                 {   
-                    nb2 = c.receiveMessage();
-                    NombreBinaire bin1 = new NombreBinaire(nb1);
-                    NombreBinaire b = NombreBinaire.randomAvecTailleMax(Integer.parseInt(nb2));
+                    NombreBinaire b = NombreBinaire.randomAvecTailleMax(Integer.parseInt(nb1));
                     c.sendMessage(b.toString());
                 }
                 str = c.receiveMessage();

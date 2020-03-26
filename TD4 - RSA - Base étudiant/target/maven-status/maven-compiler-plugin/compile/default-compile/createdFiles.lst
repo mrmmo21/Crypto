@@ -10,6 +10,7 @@ donnees\messages\MessageBinaire.class
 donnees\NombreBinaire.class
 algorithmes\generateurdecles\GenerateurDeCles.class
 Défis\Defi15.class
+Défis\FabriqueDefi.class
 Défis\Defi3.class
 Défis\Defi7.class
 donnees\messages\MessageString.class
