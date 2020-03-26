@@ -8,11 +8,9 @@ package Défis;
 
 import algorithmes.chiffrement.AlgorithmeRSA;
 import algorithmes.chiffrement.RSA.ParametresRSA;
-import algorithmes.generateurdecles.GenerateurDeClesRSA;
 import coucheReseau.client.Client;
 import donnees.MotBinaire;
 import donnees.NombreBinaire;
-import donnees.cles.Cle;
 import donnees.cles.CleBinaire;
 import donnees.cles.Cles;
 import exceptions.ExceptionConversionImpossible;
@@ -45,8 +43,8 @@ public class Defi17 implements Defis {
                     NombreBinaire e = new NombreBinaire(nb3);
                     AlgorithmeRSA algorithmeRSA = new AlgorithmeRSA();
                     Cles clesPublique = new Cles();
-                    clesPublique.addCle("cleRSA_N", new CleBinaire(new MotBinaire(N,ParametresRSA.getTailleDemiCle())));
-                    clesPublique.addCle("cleRSA_e", new CleBinaire(new MotBinaire(e,ParametresRSA.getTailleDemiCle())));
+                    clesPublique.addCle("cleRSA_N", new CleBinaire(new MotBinaire(N,ParametresRSA.getTailleCle())));
+                    clesPublique.addCle("cleRSA_e", new CleBinaire(new MotBinaire(e,ParametresRSA.getTailleCle())));
                     String s = algorithmeRSA.chiffrerMorceau(new MotBinaire(M,ParametresRSA.getTailleMorceau()),clesPublique).toString();
                     c.sendMessage(s);
                 }
