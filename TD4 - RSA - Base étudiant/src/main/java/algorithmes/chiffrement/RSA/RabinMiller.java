@@ -24,22 +24,19 @@ public class RabinMiller {
         NombreBinaire d = new NombreBinaire(nb.substring(0, nb.length()-s));
         NombreBinaire x = new NombreBinaire(a.puissanceModulo(d, n));
         if (x.estEgal(sous) || x == n.soustraction(sous) )
+            return false;
+        else
         {
-            res = false;
             for (int i = 0; i < s-1; i++)
             {
                 x = x.puissanceModulo(sous.addition(sous), n);
                 if(x == n.soustraction(sous))
                 {
-                    res = false;
+                    return false;
                 }
             }
         }
-        else
-        {
-            res = true;
-        }
-        return res;
+        return true;
     }
     
     //Test de RabinMiller, test probabilistiquement que n est premier (proba erreur = 1/4^k)

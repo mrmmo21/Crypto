@@ -62,7 +62,7 @@ public class NombreBinaire {
         this.listeBits = new BitSet();
         for(int i=0;i<bitset.length();i++) {
             this.listeBits.set(i,bitset.get(i));
-        } 
+        }
     }
     
     //Constructeur à partir d'un long
@@ -339,32 +339,23 @@ public class NombreBinaire {
      }
      
     public boolean estEgal(NombreBinaire mot2) {
-
-     boolean retour = true;
-     if (this.listeBits.length() == mot2.asBitSet().length())
-     {
-         for (int i =0; i<mot2.asBitSet().length();i++)
-         {
-            if( mot2.asBitSet().get(i)== this.listeBits.get(i))
-                    {
-                         
-                    }
-            else {
-                retour = false;
+        boolean retour = true;
+        if (this.listeBits.length() == mot2.asBitSet().length())
+        {
+            for (int i =0; i<mot2.asBitSet().length();i++)
+            {
+               if(!mot2.asBitSet().get(i)== this.listeBits.get(i))
+                   retour = false;
             }
-         }
-     }       
-     else
-     {
-         retour = false;
-     }
-       return retour;
+        }       
+        else
+            retour = false;
+        return retour;
      }
      
      //Renvoie si un nombre est pair
      public boolean estPair() {
-       boolean last=!this.listeBits.get(0);
-       return last;
+       return !this.listeBits.get(0);
      }
      
      
