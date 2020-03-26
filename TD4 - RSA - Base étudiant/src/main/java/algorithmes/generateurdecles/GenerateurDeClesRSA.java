@@ -38,7 +38,6 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
             MotBinaire motD = new MotBinaire(valeurD,valeurD.getTaille());
             CleBinaire d = new CleBinaire(motD);
             cles.addCle("cleRSA", d);
-            return cles;
         } catch (ExceptionConversionImpossible ex) {
             Logger.getLogger(GenerateurDeClesRSA.class.getName()).log(Level.SEVERE, null, ex);
         }
