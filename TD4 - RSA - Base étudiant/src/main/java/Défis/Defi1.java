@@ -6,6 +6,7 @@
 package Défis;
 
 import coucheReseau.client.Client;
+import donnees.NombreBinaire;
 
 /**
  *
@@ -14,7 +15,7 @@ import coucheReseau.client.Client;
 public class Defi1 implements Defis {
 
     @Override
-    public void lancerDefi(Client c, String str) {
+    public void lancerDefi(Client c, String str) throws Exception {
         
     }
     

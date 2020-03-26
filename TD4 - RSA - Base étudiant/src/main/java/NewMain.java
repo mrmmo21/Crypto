@@ -1,11 +1,12 @@
 
+import Défis.Defi1;
+import Défis.Defis;
+import Défis.FabriqueDefi;
 import coucheReseau.client.Client;
 import donnees.NombreBinaire;
 import exceptions.ExceptionConversionImpossible;
 import exceptions.ExceptionCryptographie;
 import java.io.IOException;
-import protocoles.Protocole;
-import protocoles.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +25,7 @@ public class NewMain {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ExceptionCryptographie, IOException {
+    public static void main(String[] args) throws Exception {
         NombreBinaire b = NombreBinaire.random(new NombreBinaire("0"), new NombreBinaire("1"));
         System.out.println(b.toString());
         
@@ -32,10 +33,14 @@ public class NewMain {
         Client c = new Client();
         String str="";
         
-        while(!str.equals("FIN")){
+       // while(!str.equals("FIN")){
             
             str = c.receiveMessage();
                        
+            
+            Defis d = FabriqueDefi.fabriqueDef(c, str);
+            d.lancerDefi(c, str);
+            
             //defInférieur(c,str);
             //defAdd(c,str);
             //defEgal(c,str);
@@ -48,16 +53,12 @@ public class NewMain {
             //defrandomBorne(c,str);
             //defModulo(c,str);
             //defQuotient(c,str);
-            defPGCD(c,str);
+            //defPGCD(c,str);
             //defPuissModulo(c,str);
-        }
+       // }
     }
     
-    public static void choisirDef(Client c, String str){
-        switch(str){
-            
-        }
-    }
+   
     
     
     public static void defPGCD(Client c, String str) throws IOException, ExceptionConversionImpossible{
@@ -109,8 +110,8 @@ public class NewMain {
             NombreBinaire bin1 = new NombreBinaire(nb1);
             NombreBinaire bin2 = new NombreBinaire(nb2);
             NombreBinaire bin3 = new NombreBinaire(nb3);
-            NombreBinaire b = bin1.puissanceModulo(bin2, bin3));
-            c.sendMessage(b.toString());
+            //NombreBinaire b = bin1.puissanceModulo(bin2, bin3));
+            //c.sendMessage(b.toString());
         }
         
     }
