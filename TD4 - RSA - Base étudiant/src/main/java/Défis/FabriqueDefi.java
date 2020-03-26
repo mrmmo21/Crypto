@@ -16,7 +16,7 @@ public class FabriqueDefi {
     
     public static Defis fabriqueDef(Client c, String str) throws Exception{
         Defis d;
-        System.out.println(str);
+        //System.out.println(str);
         switch(str){
             case "-- Début du défi : Connexion au serveur --" :
                 d = new Defi1();
@@ -42,7 +42,7 @@ public class FabriqueDefi {
             case "-- Début du défi : Multiplication --":
                 d = new Defi8();
             break;
-            case "-- Début du défi : Quotient --":
+            case "-- Début du défi : Quotient --": 
                 d = new Defi9();
             break;
             case "-- Début du défi : Modulo --":
@@ -90,9 +90,6 @@ public class FabriqueDefi {
             case "– Début du défi : Conexion au sereur –" :
                 d = new Defi24();
             break;
-            
-            
-            
             default:
                 throw new Exception("Erreur, defis non créé ou existant");
         }

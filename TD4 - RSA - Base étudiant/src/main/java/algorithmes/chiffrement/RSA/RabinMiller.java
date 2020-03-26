@@ -23,7 +23,7 @@ public class RabinMiller {
         }
         NombreBinaire d = new NombreBinaire(nb.substring(0, nb.length()-s));
         NombreBinaire x = new NombreBinaire(a.puissanceModulo(d, n));
-        if (x.estEgal(sous) || x == n.soustraction(sous) )
+        if (x.estEgal(sous) || x.estEgal(n.soustraction(sous)))
         {
             return false;
         }
@@ -32,7 +32,7 @@ public class RabinMiller {
             for (int i = 0; i < s-1; i++)
             {
                 x = x.puissanceModulo(sous.addition(sous), n);
-                if(x == n.soustraction(sous))
+                if(x.estEgal( n.soustraction(sous)))
                 {
                     return false;
                 }
