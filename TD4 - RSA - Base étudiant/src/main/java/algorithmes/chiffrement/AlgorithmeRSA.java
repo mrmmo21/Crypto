@@ -1,6 +1,9 @@
 package algorithmes.chiffrement;
 
+import algorithmes.chiffrement.RSA.ParametresRSA;
 import donnees.MotBinaire;
+import donnees.NombreBinaire;
+import donnees.cles.Cle;
 import donnees.cles.Cles;
 import donnees.messages.Message;
 import exceptions.ExceptionConversionImpossible;
@@ -16,8 +19,12 @@ public class AlgorithmeRSA implements Algorithme{
     
     //Chiffre un morceau (entrée : tailleMorceau, sortie : tailleCle)
     public MotBinaire chiffrerMorceau(MotBinaire morceau, Cles clesPublique) throws ExceptionConversionImpossible {
-       //TODO
-       return null;
+        NombreBinaire cleRSA_N = clesPublique.getCle("cleRSA_N").asMotBinaire().asNombreBinaire();
+        NombreBinaire cleRSA_e = clesPublique.getCle("cleRSA_e").asMotBinaire().asNombreBinaire();
+        NombreBinaire morceauNombreBinaire = morceau.asNombreBinaire();
+        morceauNombreBinaire = morceauNombreBinaire.puissanceModulo(cleRSA_e,cleRSA_N);
+        MotBinaire res = new MotBinaire(morceauNombreBinaire,ParametresRSA.getTailleCle());
+       return res;
     }
     
     //Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
