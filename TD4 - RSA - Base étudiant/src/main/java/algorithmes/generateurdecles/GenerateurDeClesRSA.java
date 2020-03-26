@@ -1,5 +1,6 @@
 package algorithmes.generateurdecles;
 
+import algorithmes.chiffrement.RSA.ParametresRSA;
 import donnees.MotBinaire;
 import donnees.NombreBinaire;
 import donnees.cles.CleBinaire;
@@ -58,7 +59,7 @@ public class GenerateurDeClesRSA implements GenerateurDeCles{
             NombreBinaire temp2 = this.Q.soustraction(new NombreBinaire(1));
             this.phi = temp1.multiplication(temp2);
             NombreBinaire valeurD = this.e.inverseModulaire(phi);
-            MotBinaire motD = new MotBinaire(valeurD,valeurD.getTaille());
+            MotBinaire motD = new MotBinaire(valeurD,ParametresRSA.getTailleCle());
             CleBinaire d = new CleBinaire(motD);
             cles.addCle("cleRSA", d);
         } catch (ExceptionConversionImpossible ex) {

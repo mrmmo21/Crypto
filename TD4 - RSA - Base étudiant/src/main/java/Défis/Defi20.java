@@ -45,8 +45,8 @@ public class Defi20 implements Defis {
                     gene.setE(bin3);
                     Cles cles= gene.genererClePrivee();
                     Cle cle = cles.getCle("cleRSA");
-                    String s = cle.asMotBinaire().asString()
-                    c.sendMessage();
+                    String s = cle.asMotBinaire().toString();
+                    c.sendMessage(s);
                 }
                 str = c.receiveMessage();
                 if(str.equals("NOK"))
