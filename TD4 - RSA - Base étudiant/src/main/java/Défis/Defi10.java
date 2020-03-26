@@ -8,7 +8,6 @@ package Défis;
 
 import coucheReseau.client.Client;
 import donnees.NombreBinaire;
-import exceptions.ExceptionConversionImpossible;
 
 /**
  *
@@ -44,5 +43,4 @@ public class Defi10 implements Defis {
         }
         c.end();
     }
-    
 }
