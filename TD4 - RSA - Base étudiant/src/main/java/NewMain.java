@@ -23,10 +23,6 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ExceptionCryptographie, IOException {
-        NombreBinaire b = NombreBinaire.random(new NombreBinaire("0"), new NombreBinaire("1"));
-        System.out.println(b.toString());
-        
-        
         Client c = new Client();
         String str="";
         
@@ -106,7 +102,7 @@ public class NewMain {
             NombreBinaire bin1 = new NombreBinaire(nb1);
             NombreBinaire bin2 = new NombreBinaire(nb2);
             NombreBinaire bin3 = new NombreBinaire(nb3);
-            NombreBinaire b = bin1.puissanceModulo(bin2, bin3));
+            NombreBinaire b = bin1.puissanceModulo(bin2, bin3);
             c.sendMessage(b.toString());
         }
         

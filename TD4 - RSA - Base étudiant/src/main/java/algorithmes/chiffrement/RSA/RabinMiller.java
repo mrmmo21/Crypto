@@ -1,6 +1,7 @@
 package algorithmes.chiffrement.RSA;
 
 import donnees.NombreBinaire;
+import exceptions.ExceptionConversionImpossible;
 
 /**
  * Description de la classe
@@ -10,7 +11,7 @@ public class RabinMiller {
 
     
     //Méthode renvoyant si a est un témoin de Miller de n (preuve que n est composé)
-    public static boolean temoin(NombreBinaire n, NombreBinaire a) {
+    public static boolean temoin(NombreBinaire n, NombreBinaire a) throws ExceptionConversionImpossible {
        int s = 0;
        boolean res = false;
        NombreBinaire sous = new NombreBinaire(1);
