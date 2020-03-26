@@ -377,29 +377,6 @@ public class NombreBinaire {
          }
          return a;
      }
-
-              
-//        NombreBinaire bin1 = new NombreBinaire(this); 
-//        NombreBinaire bin2 = new NombreBinaire(mot2);
-//        
-//        NombreBinaire binMax;
-//        binMax = bin1.estInferieurA(bin2) ? bin2 : bin1; // si bin1 est inferieur a bin2 => binTemp = bin2
-//        if(bin1.estInferieurA(bin2))
-//        {
-//            while(!bin1.estEgal(new NombreBinaire(0)))
-//            {
-//                bin2 = bin1;
-//                bin1 = binMax.modulo(bin1);
-//            }
-//        }
-//        else
-//        {
-//            while(!bin2.estEgal(new NombreBinaire(0)))
-//            {
-//                bin1 = bin2;
-//                bin2 = binMax.modulo(bin2);
-//            }
-//        }
      
      //Calcul de l'inverse modulo nombre
      //Basé sur l'algo d'euclide étendu (adapté).
